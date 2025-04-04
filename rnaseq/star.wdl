@@ -110,7 +110,7 @@ task star {
     }
 
     runtime {
-        docker: "us.gcr.io/broad-dsp-lrma/gtex_v8_rnaseq_star_2.7.10a"
+        docker: "us.gcr.io/broad-dsp-lrma/gtex_v8_star_2.7.10a_custom" #"us.gcr.io/broad-dsp-lrma/gtex_v8_rnaseq_star_2.7.10a"
         memory: "${memory}GB"
         disks: "local-disk ${disk_space} HDD"
         cpu: "${num_threads}"
