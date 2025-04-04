@@ -99,9 +99,10 @@ task star {
         File bam_file = "star_out/${prefix}.Aligned.sortedByCoord.out.bam"
         File bam_index = "star_out/${prefix}.Aligned.sortedByCoord.out.bam.bai"
         File transcriptome_bam = "star_out/${prefix}.Aligned.toTranscriptome.out.bam"
-        File chimeric_junctions = "star_out/${prefix}.Chimeric.out.junction"
-        File chimeric_bam_file = "star_out/${prefix}.Chimeric.out.sorted.bam"
-        File chimeric_bam_index = "star_out/${prefix}.Chimeric.out.sorted.bam.bai"
+        File? chimeric_junctions = "star_out/${prefix}.Chimeric.out.junction"
+        File? chimeric_bam_file = "star_out/${prefix}.Chimeric.out.sorted.bam"
+        File? chimeric_bam_index = "star_out/${prefix}.Chimeric.out.sorted.bam.bai"
+
         File read_counts = "star_out/${prefix}.ReadsPerGene.out.tab"
         File junctions = "star_out/${prefix}.SJ.out.tab"
         File junctions_pass1 = "star_out/${prefix}._STARpass1/SJ.out.tab"

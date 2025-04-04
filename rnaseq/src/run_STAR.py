@@ -114,6 +114,13 @@ with cd(args.output_dir):
     cmd = 'samtools index '+args.prefix+'.Aligned.sortedByCoord.out.bam'
     subprocess.check_call(cmd, shell=True, executable='/bin/bash')
     print('['+datetime.now().strftime("%b %d %H:%M:%S")+'] Finished indexing BAM', flush=True)
+    
+    ### added by Shadi Zaheri for the non-cancer samples
+    # touch Chimeric.out.sam if it doesn't exist (for non-cancer samples)
+    chim_sam = f"{args.prefix}.Chimeric.out.sam"
+    if not os.path.exists(chim_sam):
+        print(f"[{datetime.now().strftime('%b %d %H:%M:%S')}] Chimeric.out.sam not found, generating empty file.", flush=True)
+        open(chim_sam, 'a').close()
 
     # sort and index chimeric BAM
     if int(args.chimSegmentMin)>0:
