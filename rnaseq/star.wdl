@@ -32,7 +32,6 @@ task star {
     Int? chimMainSegmentMultNmax
     Int? chimOutJunctionFormat
     File? sjdbFileChrStartEnd
-    String? quantTranscriptomeSAMoutput
     Int? winAnchorMultimapNmax
     String? genomeTransformOutput
 
@@ -108,7 +107,6 @@ task star {
             ${"--chimMainSegmentMultNmax " + chimMainSegmentMultNmax} \
             ${"--chimOutJunctionFormat " + chimOutJunctionFormat} \
             ${"--sjdbFileChrStartEnd " + sjdbFileChrStartEnd} \
-            ${"--quantTranscriptomeSAMoutput " + quantTranscriptomeSAMoutput} \
             ${"--winAnchorMultimapNmax " + winAnchorMultimapNmax} \
             ${"--genomeTransformOutput " + genomeTransformOutput} \
             --threads ${num_threads}
@@ -128,7 +126,7 @@ task star {
     }
 
     runtime {
-        docker: "gcr.io/broad-cga-francois-gtex/gtex_rnaseq:V10"
+        docker: "us.gcr.io/broad-dsp-lrma/gtex_rnaseq_star_2.7.10a"
         memory: "${memory}GB"
         disks: "local-disk ${disk_space} HDD"
         cpu: "${num_threads}"
