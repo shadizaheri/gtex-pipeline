@@ -126,7 +126,7 @@ task star {
     }
 
     runtime {
-        docker: "us.gcr.io/broad-dsp-lrma/gtex_rnaseq_star_2.7.10a"
+        docker: "us.gcr.io/broad-dsp-lrma/gtex_star2.7.10a_v1"
         memory: "${memory}GB"
         disks: "local-disk ${disk_space} HDD"
         cpu: "${num_threads}"
